@@ -39,7 +39,7 @@ public class UserWS {
 
     @GET
     @Path("/list")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> list() {
         // 3 - O método `listAll` recupera todos os objetos da classe User.
@@ -48,7 +48,7 @@ public class UserWS {
 
     @GET
     @Path("/list/{id}")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public User list(@PathParam("id") Long id) {
         // 4 - O método do Panache `findById` recupera um objeto da classe User.
@@ -57,7 +57,7 @@ public class UserWS {
 
     @DELETE
     @Path("/delete/{id}")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public User delete(@PathParam("id") Long id) {
         User u = User.findById(id);
@@ -67,7 +67,7 @@ public class UserWS {
 
     @PUT
     @Path("/edit")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public User edit(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("senha") String senha) {
         User u = User.findById(id);

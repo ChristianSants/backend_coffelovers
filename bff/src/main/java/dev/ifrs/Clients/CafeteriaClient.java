@@ -32,12 +32,12 @@ import javax.ws.rs.core.MediaType;
  * }
  */
 
-// @AccessToken
+@AccessToken
 @RegisterRestClient(baseUri = "http://localhost:8083/cafeteria")
 public interface CafeteriaClient {
     @POST
     @Path("/save")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Cafeteria save(@FormParam("nome") String nome, @FormParam("endereco") String endereco);
@@ -46,27 +46,27 @@ public interface CafeteriaClient {
     @Path("/list")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public List<Cafeteria> list();
 
     @GET
     @Path("/list/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafeteria find(@PathParam("id") Long id);
 
     @DELETE
     @Path("/delete/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafeteria delete(@PathParam("id") Long id);
 
     @PUT
     @Path("/edit")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafeteria edit(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("endereco") String endereco);
 }

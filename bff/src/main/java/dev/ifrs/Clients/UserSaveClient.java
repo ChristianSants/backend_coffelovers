@@ -28,7 +28,7 @@ public interface UserSaveClient {
     
     @POST
     @Path("/save")
-    // @PermitAll
+    @PermitAll
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public User save(@FormParam("nome") String nome, @FormParam("login") String login, @FormParam("senha") String senha);

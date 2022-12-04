@@ -38,7 +38,7 @@ public class Bff {
 
     @POST
     @Path("/user/save")
-    // @PermitAll
+    @PermitAll
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public User saveUser(@FormParam("nome") String nome, @FormParam("login") String login, @FormParam("senha") String senha) {
@@ -53,7 +53,7 @@ public class Bff {
     @Path("/user/list")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public List<User> listUser() {
         return user.list();
     }
@@ -62,7 +62,7 @@ public class Bff {
     @Path("/user/list/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public User listUser(@PathParam("id") Long id) {
         return user.find(id);
     }
@@ -71,7 +71,7 @@ public class Bff {
     @Path("/user/delete/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public User deleteUser(@PathParam("id") Long id) {
         return user.delete(id);
     }
@@ -80,7 +80,7 @@ public class Bff {
     @Path("/user/edit")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public User editUser(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("senha") String senha) {
         return user.edit(id, nome, senha);
     }
@@ -106,7 +106,7 @@ public class Bff {
 
     @POST
     @Path("/cafeteria/save")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Cafeteria saveCafeteria(@FormParam("nome") String nome, @FormParam("endereco") String endereco ) {
@@ -117,7 +117,7 @@ public class Bff {
     @Path("/cafeteria/list")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public List<Cafeteria> listCafeteria() {
         return cafeteria.list();
     }
@@ -126,7 +126,7 @@ public class Bff {
     @Path("/cafeteria/list/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafeteria listCafeteria(@PathParam("id") Long id) {
         return cafeteria.find(id);
     }
@@ -135,7 +135,7 @@ public class Bff {
     @Path("/cafeteria/delete/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafeteria deleteCafeteria(@PathParam("id") Long id) {
         return cafeteria.delete(id);
     }
@@ -144,7 +144,7 @@ public class Bff {
     @Path("/cafeteria/edit")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafeteria editCafeteria(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("endereco") String endereco) {
         return cafeteria.edit(id, nome, endereco);
     }
@@ -156,7 +156,7 @@ public class Bff {
 
     @POST
     @Path("/cafe/save")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Cafe saveCafe(@FormParam("nome") String nome, @FormParam("nota") int nota,  @FormParam("tipo") String tipo, @FormParam("favorito") boolean favorito, @FormParam("user_id") Long user_id, @FormParam("cafeteria_id") Long cafeteria_id) {
@@ -167,7 +167,7 @@ public class Bff {
     @Path("/cafe/list")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public List<Cafe> listCafe() {
         return cafe.list();
     }
@@ -176,7 +176,7 @@ public class Bff {
     @Path("/cafe/list/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafe listCafe(@PathParam("id") Long id) {
         return cafe.find(id);
     }
@@ -185,7 +185,7 @@ public class Bff {
     @Path("/cafe/delete/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafe deleteCafe(@PathParam("id") Long id) {
         return cafe.delete(id);
     }
@@ -194,7 +194,7 @@ public class Bff {
     @Path("/cafe/edit")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafe editCafe(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("nota") int nota,  @FormParam("tipo") String tipo, @FormParam("favorito") boolean favorito) {
         return cafe.edit(id, nome, nota, tipo, favorito);
     }
@@ -203,7 +203,7 @@ public class Bff {
     @Path("/cafe/favoritar")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public Cafe favoritarCafe(@FormParam("id") Long id, @FormParam("favorito") boolean favorito) {
         return cafe.favoritarDesfavoritar(id, favorito);
     }
@@ -211,7 +211,7 @@ public class Bff {
     @GET
     @Path("/cafe/list/user/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public List<Cafe> listByUserId(@PathParam("id") Long id) {
         return cafe.listByUserId(id);
     }

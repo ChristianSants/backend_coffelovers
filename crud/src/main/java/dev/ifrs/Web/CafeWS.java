@@ -1,6 +1,8 @@
 package dev.ifrs.Web;
 
 import java.util.List;
+
+import javax.annotation.security.RolesAllowed;
 import javax.transaction.Transactional;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.Consumes;
@@ -23,7 +25,7 @@ import dev.ifrs.Model.User;
 public class CafeWS {
     @POST
     @Path("/save")
-    // @PermitAll
+    @RolesAllowed({"User"})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Cafe save(@FormParam("nome") String nome, @FormParam("nota") int nota,  @FormParam("tipo") String tipo, @FormParam("favorito") boolean favorito, @FormParam("user_id") Long user_id, @FormParam("cafeteria_id") Long cafeteria_id) {
@@ -55,7 +57,7 @@ public class CafeWS {
 
     @GET
     @Path("/list")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cafe> list() {
         // 3 - O método `listAll` recupera todos os objetos da classe User.
@@ -64,7 +66,7 @@ public class CafeWS {
 
     @GET
     @Path("/list/{id}")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Cafe list(@PathParam("id") Long id) {
         // 4 - O método do Panache `findById` recupera um objeto da classe User.
@@ -73,7 +75,7 @@ public class CafeWS {
 
     @DELETE
     @Path("/delete/{id}")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Cafe delete(@PathParam("id") Long id) {
         Cafe c = Cafe.findById(id);
@@ -83,7 +85,7 @@ public class CafeWS {
 
     @PUT
     @Path("/edit")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Cafe edit(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("nota") int nota,  @FormParam("tipo") String tipo, @FormParam("favorito") boolean favorito) {
         Cafe c = Cafe.findById(id);
@@ -96,7 +98,7 @@ public class CafeWS {
 
     @PATCH
     @Path("/favoritar")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Cafe favoritarDesfavoritar(@FormParam("id") Long id, @FormParam("favorito") boolean favorito) {
         Cafe c = Cafe.findById(id);
@@ -106,7 +108,7 @@ public class CafeWS {
 
     @GET
     @Path("/list/user/{id}")
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cafe> listByUserId(@PathParam("id") Long id) {
         // 4 - O método do Panache `findById` recupera um objeto da classe User.

@@ -28,7 +28,6 @@ public class Cafe {
     private String tipo;
     private boolean favorito;
     private Cafeteria cafeteria;
-    private User user;
 
     public Long getId() {
         return id;
@@ -76,13 +75,5 @@ public class Cafe {
 
     public void setCafeteria(Cafeteria cafeteria) {
         this.cafeteria = cafeteria;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

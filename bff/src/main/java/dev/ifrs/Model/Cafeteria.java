@@ -26,7 +26,6 @@ public class Cafeteria {
     private Long id;
     private String nome;
     private String endereco;
-    private List<Cafe> cafes;
 
     public Long getId() {
         return id;
@@ -50,17 +49,5 @@ public class Cafeteria {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public List<Cafe> getCafes() {
-        return cafes;
-    }
-
-    public void setCafes(List<Cafe> cafes) {
-        this.cafes = cafes;
-    }
-
-    public void addCafe(Cafe cafe) {
-        this.cafes.add(cafe);
     }
 }

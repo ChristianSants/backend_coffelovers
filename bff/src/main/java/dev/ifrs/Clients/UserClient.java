@@ -30,34 +30,34 @@ import javax.ws.rs.core.MediaType;
  *     }
  * }
  */
-// @AccessToken
+@AccessToken
 @RegisterRestClient(baseUri = "http://localhost:8083/user")
 public interface UserClient {
     @GET
     @Path("/list")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public List<User> list();
 
     @GET
     @Path("/list/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public User find(@PathParam("id") Long id);
 
     @DELETE
     @Path("/delete/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public User delete(@PathParam("id") Long id);
 
     @PUT
     @Path("/edit")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    // @RolesAllowed({"User"})
+    @RolesAllowed({"User"})
     public User edit(@FormParam("id") Long id, @FormParam("nome") String nome, @FormParam("senha") String senha);
 }
