@@ -27,7 +27,7 @@ public class LoginWS {
     @POST
     // @PermitAll
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String login(@FormParam("login") String login, @FormParam("senha") String senha) {
         User meuUser = user.findByLogin(login);        
         if(meuUser != null){

@@ -94,7 +94,7 @@ public class Bff {
     @Path("/login")
     // @PermitAll
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String login(@FormParam("login") String login, @FormParam("senha") String senha){
         return lg.login(login, senha);
     }
